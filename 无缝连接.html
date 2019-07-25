@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            margin:0;
+            padding: 0;
+        }
+        #container {
+            margin: 100px auto;
+            width: 300px;
+            height: 200px;
+            border: 1px solid black;
+            position: relative;
+            overflow: hidden;
+
+        }
+        #container .divcon {
+            left:0px;
+            position: absolute;
+            width:840px;
+        }
+        #container .divcon div{
+
+            background: black ;
+            color: white;
+            width: 100px;
+            height: 100px;
+            text-align: center;
+            line-height: 100px;
+            float: left;
+            margin-right:5px ;
+        }
+        #container .spancon {
+            position: absolute;
+            bottom: 0;
+            left:50% ;
+
+        }
+        #container .spancon span{
+            background: #ccc;
+            padding: 10px;
+            margin: 5px;
+            float: left;
+
+
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <div class="divcon" id="dddd">
+        <div id="div1">1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+        <div>1</div>
+        <div>2</div>
+        <div>3</div>
+        <div>4</div>
+    </div>
+    <div class="spancon" >
+        <span id="zuo">向左</span>
+        <span id="you">向右</span>
+    </div>
+</div>
+<script>
+    var oDivCon=document .getElementsByClassName ('divcon');
+    var oDiv=document .getElementById ('div1');
+    var oZuo=document.getElementById ('zuo');
+    var oYou=document.getElementById ('you');
+    var speed=-2;
+    setInterval (function () {
+        var ileft=oDivCon[0].offsetLeft ;
+        if(ileft <=-oDivCon[0].offsetWidth /2)
+            oDivCon [0].style .left =0;
+        if(ileft >0 ) {
+            console .log(ileft);
+            oDivCon [0].style .left ='-420px';
+        }
+
+        else{
+            oDivCon[0] .style.left=ileft +speed+'px';
+        }
+
+
+    },50)
+    oZuo.onmouseover=function (){
+        speed=-2;
+    }
+    oYou.onmouseover=function() {
+        speed=2;
+    }
+</script>
+</body>
+</html>
